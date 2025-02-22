@@ -8,7 +8,7 @@ function App() {
   const [user, setUser] = useState("");
 
   return (
-    <div className=" flex min-h-[100vh] justify-center items-center">
+    <div className=" flex min-h-[100vh] m-7 justify-center items-center">
       {user ? (
         <div className="justify-center w-1/4 border-1 items-center ">
           <Navbar />
