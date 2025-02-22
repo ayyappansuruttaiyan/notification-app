@@ -1,17 +1,19 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
+import { posts } from "./data";
 
 function App() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState("");
-  console.log(name);
+
   return (
-    <div className="flex w-full min-h-screen  justify-center items-center">
+    <div className=" flex min-h-[100vh] justify-center items-center">
       {user ? (
-        <div className="flex flex-col justify-center items-center bg-teal-500 min-h-100vh border-1 border-teal-600">
+        <div className="justify-center w-1/4 border-1 items-center ">
           <Navbar />
-          <Card />
+          {posts && posts.map((post) => <Card key={post.id} post={post} />)}
+
           <span className="absolute top-15 right-15 text-teal-500 capitalize">
             {user}
           </span>
