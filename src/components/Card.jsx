@@ -1,6 +1,18 @@
-import { BiComment, BiHeart, BiInfoCircle, BiShare } from "react-icons/bi";
+import { useState } from "react";
+import {
+  BiComment,
+  BiHeart,
+  BiHeartCircle,
+  BiInfoCircle,
+  BiShare,
+} from "react-icons/bi";
 
 function Card({ post }) {
+  const [liked, setLiked] = useState(false);
+
+  const handleNotification = () => {
+    setLiked(true);
+  };
   return (
     <div className="flex flex-col mb-5">
       <div className="flex items-center gap-5 ml-2 mt-2 mb-2">
@@ -13,7 +25,18 @@ function Card({ post }) {
       </div>
       <img src={post.postImg} alt="" className="" />
       <div className="flex items-center relative gap-2 ml-2 mt-2">
-        <BiHeart className=" h-5 w-5 cursor-pointer" />
+        {liked ? (
+          <BiHeartCircle
+            className=" h-5 w-5 cursor-pointer"
+            onClick={handleNotification}
+          />
+        ) : (
+          <BiHeart
+            className=" h-5 w-5 cursor-pointer"
+            onClick={handleNotification}
+          />
+        )}
+
         <BiComment className=" h-5 w-5 cursor-pointer" />
         <BiShare className=" h-5 w-5 cursor-pointer" />
         <BiInfoCircle className=" h-5 w-5 cursor-pointer right-0 absolute" />
